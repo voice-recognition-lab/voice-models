@@ -2,3 +2,5 @@
 /data/** -text
 /dataset-generator/asr-tts/** text eol=lf
 /configs/asr-tts*.json text eol=lf
+/dataset-generator/asr-tts/experiments/massive-v1.1-pilot/** -text
+/dataset-generator/asr-tts/experiments/massive-v1.1-cyrillic-pilot/** -text

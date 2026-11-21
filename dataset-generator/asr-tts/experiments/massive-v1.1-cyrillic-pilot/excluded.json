@@ -1,0 +1,27 @@
+[
+  {
+    "sample_id": "11863",
+    "text": "olly",
+    "reason": "Latin characters; pronunciation not validated for this TTS"
+  },
+  {
+    "sample_id": "5798",
+    "text": "iphone",
+    "reason": "Latin characters; pronunciation not validated for this TTS"
+  },
+  {
+    "sample_id": "16",
+    "text": "olly приглуши светильники в холле",
+    "reason": "Latin characters; pronunciation not validated for this TTS"
+  },
+  {
+    "sample_id": "25",
+    "text": "olly начни уборку в квартире",
+    "reason": "Latin characters; pronunciation not validated for this TTS"
+  },
+  {
+    "sample_id": "51",
+    "text": "olly назови самые популярные сервисы доставки китайской еды",
+    "reason": "Latin characters; pronunciation not validated for this TTS"
+  }
+]

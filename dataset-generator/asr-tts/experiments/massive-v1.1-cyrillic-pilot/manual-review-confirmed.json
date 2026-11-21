@@ -1,0 +1,98 @@
+{
+  "recorded_at_utc": "2026-11-21T22:20:35.345599+00:00",
+  "basis": "User confirmed listening to all 15 recordings in this conversation.",
+  "observation": "User reported no problems; no independent phonetic annotation.",
+  "scope": "Only the WAV files identified below.",
+  "records": [
+    {
+      "audio_id": "audio_0001_xenia_clean",
+      "sample_id": "11650",
+      "wav": "outputs/massive-v1.1-cyrillic-pilot/dataset/audio/audio_0001_xenia_clean.wav",
+      "sha256": "33a27a4387ba4a1e52a0f4f306973fecdc03f25836b079ff5e51c0d7814c2fa3"
+    },
+    {
+      "audio_id": "audio_0002_xenia_clean",
+      "sample_id": "10235",
+      "wav": "outputs/massive-v1.1-cyrillic-pilot/dataset/audio/audio_0002_xenia_clean.wav",
+      "sha256": "0da14a529cfc3e00281fdc679be0092efc47c16cdad6ccd8e428078052d9bdb6"
+    },
+    {
+      "audio_id": "audio_0003_xenia_clean",
+      "sample_id": "7580",
+      "wav": "outputs/massive-v1.1-cyrillic-pilot/dataset/audio/audio_0003_xenia_clean.wav",
+      "sha256": "4d9389aeeb3c36c2458f9c0afc5bd3008bace767b462aa2aea677c6801e2792c"
+    },
+    {
+      "audio_id": "audio_0004_xenia_clean",
+      "sample_id": "0",
+      "wav": "outputs/massive-v1.1-cyrillic-pilot/dataset/audio/audio_0004_xenia_clean.wav",
+      "sha256": "aad29428aa08df76f7d40c878024b28bc8af4231f856ca9fb1d62852639c9259"
+    },
+    {
+      "audio_id": "audio_0005_xenia_clean",
+      "sample_id": "3",
+      "wav": "outputs/massive-v1.1-cyrillic-pilot/dataset/audio/audio_0005_xenia_clean.wav",
+      "sha256": "4950751212b4a3338dc507985a2701ad15acb6d7b9b11cd183d56b1297905927"
+    },
+    {
+      "audio_id": "audio_0006_xenia_clean",
+      "sample_id": "8",
+      "wav": "outputs/massive-v1.1-cyrillic-pilot/dataset/audio/audio_0006_xenia_clean.wav",
+      "sha256": "e9144e2efcb312c9240d963ca7bdb60625ab3bb41410edb6f68db4344cc6f0ad"
+    },
+    {
+      "audio_id": "audio_0007_xenia_clean",
+      "sample_id": "11",
+      "wav": "outputs/massive-v1.1-cyrillic-pilot/dataset/audio/audio_0007_xenia_clean.wav",
+      "sha256": "80b7d7572e1f1e8ef8da9960cd9a03e72d7695f2c27ce92301d3797181271b75"
+    },
+    {
+      "audio_id": "audio_0008_xenia_clean",
+      "sample_id": "14",
+      "wav": "outputs/massive-v1.1-cyrillic-pilot/dataset/audio/audio_0008_xenia_clean.wav",
+      "sha256": "403a972767005534aab9ceb1ddf47a0d13b3642eed6127b146625467486d5f87"
+    },
+    {
+      "audio_id": "audio_0009_xenia_clean",
+      "sample_id": "33",
+      "wav": "outputs/massive-v1.1-cyrillic-pilot/dataset/audio/audio_0009_xenia_clean.wav",
+      "sha256": "0de030f68cf1d24ae878832e27126584d1dc2c5af5dd19e557ba351cac3eff4a"
+    },
+    {
+      "audio_id": "audio_0010_xenia_clean",
+      "sample_id": "34",
+      "wav": "outputs/massive-v1.1-cyrillic-pilot/dataset/audio/audio_0010_xenia_clean.wav",
+      "sha256": "51a4938b06f35a51d6f71621ba48f5ed7d9b5759f11cca7e01b06db65b687f7a"
+    },
+    {
+      "audio_id": "audio_0011_xenia_clean",
+      "sample_id": "47",
+      "wav": "outputs/massive-v1.1-cyrillic-pilot/dataset/audio/audio_0011_xenia_clean.wav",
+      "sha256": "d7b754d67d1432252f2e1dc15ad23d2f83382993de2cca9a8a062d0be5f9387d"
+    },
+    {
+      "audio_id": "audio_0012_xenia_clean",
+      "sample_id": "59",
+      "wav": "outputs/massive-v1.1-cyrillic-pilot/dataset/audio/audio_0012_xenia_clean.wav",
+      "sha256": "a6c0332483f88706747d5289f920575e07a5a3e94a010bf57e87ff1a5461cc70"
+    },
+    {
+      "audio_id": "audio_0013_xenia_clean",
+      "sample_id": "61",
+      "wav": "outputs/massive-v1.1-cyrillic-pilot/dataset/audio/audio_0013_xenia_clean.wav",
+      "sha256": "0ea3b5f25961e1d1e39383b0d3f3fadadee2bb06ef6ad45e13a87244b797c2ed"
+    },
+    {
+      "audio_id": "audio_0014_xenia_clean",
+      "sample_id": "70",
+      "wav": "outputs/massive-v1.1-cyrillic-pilot/dataset/audio/audio_0014_xenia_clean.wav",
+      "sha256": "5ae961e6696236189ffb064e3da4d43587f102553f27e21a812fec7d03dcd0ef"
+    },
+    {
+      "audio_id": "audio_0015_xenia_clean",
+      "sample_id": "74",
+      "wav": "outputs/massive-v1.1-cyrillic-pilot/dataset/audio/audio_0015_xenia_clean.wav",
+      "sha256": "a75b68ffea32314509c43fff106f763fc8edddb7e84d8a1806abb5509a6828bd"
+    }
+  ]
+}
