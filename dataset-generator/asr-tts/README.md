@@ -11,10 +11,10 @@
 | `configs/asr-tts-pilot.json` | Минимальный запуск на четырёх командах |
 | `configs/asr-tts.json` | Конфигурация опубликованного эксперимента |
 | `data/v1/asr-tts/` | Исторический источник, произносимые тексты, соответствия и вопросы произношения |
-| `data/v1/experiments/zhanna-text-only-v1.0.1/` | Сохранённые гипотезы, замеры, метаданные и метрики; без WAV |
+| `data/v1/experiments/synthetic-commands-v1/` | Сохранённые гипотезы, замеры, метаданные и метрики; без WAV |
 | `outputs/` | Новые локальные результаты, исключены из Git |
 
-`source_samples.jsonl` — точный снимок 163 команд старого коммита Жанны. Он не заменяет актуальный `data/v1/dataset/samples.jsonl` текстового генератора. `tts_ready_samples.jsonl` содержит 151 произносимый эталон, 12 вопросов сохранены в `pronunciation_review.jsonl`. Все ID выбранных команд доступны непосредственно в файле входов. Не подменяйте исторический источник новым датасетом при проверке старых метрик.
+`source_samples.jsonl` — точный снимок 163 команд исходного коммита текстового генератора. Он не заменяет актуальный `data/v1/dataset/samples.jsonl` текстового генератора. `tts_ready_samples.jsonl` содержит 151 произносимый эталон, 12 вопросов сохранены в `pronunciation_review.jsonl`. Все ID выбранных команд доступны непосредственно в файле входов. Не подменяйте исторический источник новым датасетом при проверке старых метрик.
 
 ## Установка
 
@@ -41,7 +41,7 @@ py -3.11 -m venv .venv-gigaam
 ## Оценка сохранённых гипотез без моделей
 
 ```powershell
-$Artifacts = 'data/v1/experiments/zhanna-text-only-v1.0.1'
+$Artifacts = 'data/v1/experiments/synthetic-commands-v1'
 $Check = 'outputs/published-evaluation-check'
 if (Test-Path -LiteralPath $Check) { throw 'Choose a new output directory' }
 foreach ($Model in @('whisper', 'gigaam')) {

@@ -4,13 +4,13 @@
 
 ## Входы и проверка до моделей
 
-Источник — точный снимок `data/v1/asr-tts/source_samples.jsonl` из PR №5, commit `a1dff1335109d12e5594391066d6a260ce54601b`. SHA256 и путь источника сохранены в `source.json`. Производные данные и правила лежат в `data/v1/asr-tts/`: `tts_ready_samples.jsonl` содержит 151 выбранную команду, `pronunciation_review.jsonl` — 12 вопросов. Это исторический снимок, а не актуальная версия датасета Жанны.
+Источник — точный снимок `data/v1/asr-tts/source_samples.jsonl` из PR №5, commit `a1dff1335109d12e5594391066d6a260ce54601b`. SHA256 и путь источника сохранены в `source.json`. Производные данные и правила лежат в `data/v1/asr-tts/`: `tts_ready_samples.jsonl` содержит 151 выбранную команду, `pronunciation_review.jsonl` — 12 вопросов. Это исторический снимок, а не актуальная версия датасета текстового генератора.
 
 Не запускайте старый `run_experiment.py` из локального плана: он привязан к прежним выходам и пилотным файлам. Не обновляйте старый freeze.json. Для нового запуска копируется конфигурация с новым выходным каталогом, а функция preflight проверяет её без загрузки моделей:
 
 ```powershell
 New-Item -ItemType Directory -Path outputs -Force | Out-Null
-.\.venv\Scripts\python.exe -B -c "import sys,json; from pathlib import Path; sys.path.insert(0,'dataset-generator/asr-tts'); from run_pipeline import preflight; c=json.loads(Path('configs/asr-tts.json').read_text(encoding='utf-8')); c['output']='outputs/reproduce-zhanna-text-only-v1.0.1'; p=Path('outputs/reproduce-zhanna-config.json'); p.open('x',encoding='utf-8').write(json.dumps(c,indent=2)); _,r,s,e=preflight(p); print('samples=',len(s),'expected_wavs=',len(s)*9)"
+.\.venv\Scripts\python.exe -B -c "import sys,json; from pathlib import Path; sys.path.insert(0,'dataset-generator/asr-tts'); from run_pipeline import preflight; c=json.loads(Path('configs/asr-tts.json').read_text(encoding='utf-8')); c['output']='outputs/reproduce-synthetic-commands-v1'; p=Path('outputs/reproduce-synthetic-commands-config.json'); p.open('x',encoding='utf-8').write(json.dumps(c,indent=2)); _,r,s,e=preflight(p); print('samples=',len(s),'expected_wavs=',len(s)*9)"
 if ($LASTEXITCODE -ne 0) { throw 'Preflight failed; do not start models' }
 ```
 
@@ -30,7 +30,7 @@ if ($LASTEXITCODE -ne 0) { throw 'Derivation failed' }
 ```powershell
 $Run = 'outputs/reproduce-zhanna-text-only-v1.0.1'
 $Samples = 'data/v1/asr-tts/tts_ready_samples.jsonl'
-$Models = 'data/v1/experiments/zhanna-text-only-v1.0.1/config.models.json'
+$Models = 'data/v1/experiments/synthetic-commands-v1/config.models.json'
 if (Test-Path -LiteralPath $Run) { throw 'Choose a new run directory' }
 New-Item -ItemType Directory -Path $Run | Out-Null
 Copy-Item -LiteralPath $Samples -Destination "$Run/input_samples.jsonl"
@@ -88,6 +88,6 @@ foreach ($a in $Audio) {
 }
 ```
 
-Все гипотезы, времена, настройки и метрики остаются в новом `$Run`. Сводные обычные срезы — `comparison/`; отдельные числовые записи и тексты до/после преобразования — `numeric-*/`. Срезы числовой оценки завершённого эксперимента опубликованы в `data/v1/experiments/zhanna-text-only-v1.0.1/slices.csv`.
+Все гипотезы, времена, настройки и метрики остаются в новом `$Run`. Сводные обычные срезы — `comparison/`; отдельные числовые записи и тексты до/после преобразования — `numeric-*/`. Срезы числовой оценки завершённого эксперимента опубликованы в `data/v1/experiments/synthetic-commands-v1/slices.csv`.
 
 При HTTP 429 остановитесь и сохраните частичный результат; не меняйте ревизию на main. В опубликованном запуске GigaAM продолжили из локального snapshot с проверкой LFS SHA256 и Git blob ID, без повторения Whisper. Исторический локальный cache-only helper не является универсальным публичным загрузчиком; его доказательства сохранены в provenance.json. Повторный запуск после внешнего сбоя должен использовать новый каталог; не удаляйте предыдущие файлы.

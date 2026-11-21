@@ -28,7 +28,7 @@ Generates synthetic Russian voice commands with action labels and arguments.
 - Текстовый генератор: `dataset-generator/text/` (отдельный PR).
 - [TTS, аудиоаудит, шум, ASR и оценка](dataset-generator/asr-tts/README.md).
 - [Контракты данных](docs/contracts.md).
-- [Отчёт завершённого ASR-эксперимента](docs/reports/zhanna-text-only-v1.0.1.md).
+- [Отчёт завершённого ASR-эксперимента](docs/reports/asr-synthetic-commands-v1.md).
 
 В ASR-эксперименте обработаны 151 команда / 1359 синтетических WAV двумя моделями. WER: Whisper-small — 44,09%, GigaAM-v3 — 35,90%. Это предварительная оценка синтетического тракта, не точности выполнения действий. TTS иногда отличается от эталона; числа и технические имена остаются сложными случаями. Ручная проверка нескольких записей не подтверждает весь набор.
 

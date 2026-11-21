@@ -1,8 +1,8 @@
-# Предварительная ASR-оценка ru-text-only-1.0.1
+# Сравнение Whisper и GigaAM на синтетических русских командах
 
 ## Данные и метод
 
-Источник — 163 команды из [PR №5](https://github.com/voice-canvas-lab/voice-models/pull/5), commit `a1dff1335109d12e5594391066d6a260ce54601b`. Сохранены [исторический снимок](../../data/v1/asr-tts/source_samples.jsonl) и [источник/SHA256](../../data/v1/asr-tts/source.json). Это не актуальная версия обновляемого датасета Жанны.
+Источник — 163 команды из [PR №5](https://github.com/voice-canvas-lab/voice-models/pull/5), commit `a1dff1335109d12e5594391066d6a260ce54601b`. Сохранены [исторический снимок](../../data/v1/asr-tts/source_samples.jsonl) и [источник/SHA256](../../data/v1/asr-tts/source.json). Это не актуальная версия обновляемого датасета текстового генератора.
 
 Преобразование использует только исходный text, не читает args/context/action_id и не исправляет смысл, названия или годы. Числа переводятся в слова, ведущие нули сохраняются; подчёркивания и внутренние дефисы становятся границами слов. Обычная пунктуация остаётся для интонации. Это не точное обратимое кодирование имён.
 
@@ -15,11 +15,11 @@
 - GigaAM-v3 e2e_ctc: CPU float32, revision `cec030b4c4f35d928e4a9044a3bdb29ebd499fac`.
 - Intel Core i7-13700H, Windows, Python 3.11.5. RTF исключает загрузку и прогрев, включает чтение аудио.
 
-[Конфигурация](../../data/v1/experiments/zhanna-text-only-v1.0.1/config.models.json), [Whisper settings](../../data/v1/experiments/zhanna-text-only-v1.0.1/whisper/asr_settings.json), [GigaAM settings](../../data/v1/experiments/zhanna-text-only-v1.0.1/gigaam/asr_settings.json).
+[Конфигурация](../../data/v1/experiments/synthetic-commands-v1/config.models.json), [Whisper settings](../../data/v1/experiments/synthetic-commands-v1/whisper/asr_settings.json), [GigaAM settings](../../data/v1/experiments/synthetic-commands-v1/gigaam/asr_settings.json).
 
 151 × 3 голоса × clean/SNR20/SNR10 = **1359 WAV**. Шум — искусственный белый гауссовский; мощность считается по всем отсчётам, включая паузы. Аудиоаудит прошёл: клиппинга нет, максимум длительности 18,425 с, максимальная ошибка SNR 0,000163 дБ. Хеши входов обеих ASR совпали. Модели получали только аудио, без подсказок.
 
-Обе ASR обработали 1359/1359, пустых/пропущенных гипотез нет. GigaAM завершён из проверенного кеша той же ревизии после двух HTTP 429 до распознавания. [Подробности исходного запуска](../../data/v1/experiments/zhanna-text-only-v1.0.1/provenance.json).
+Обе ASR обработали 1359/1359, пустых/пропущенных гипотез нет. GigaAM завершён из проверенного кеша той же ревизии после двух HTTP 429 до распознавания. [Подробности исходного запуска](../../data/v1/experiments/synthetic-commands-v1/provenance.json).
 
 ## Результаты
 
@@ -28,7 +28,7 @@
 | Whisper-small | 44,09% | 31,57% | 43,78% | 31,33% | 0,6059 |
 | GigaAM-v3 | 35,90% | 27,81% | 35,64% | 27,62% | 0,2092 |
 
-[Точные суммы и метрики](../../data/v1/experiments/zhanna-text-only-v1.0.1/metrics.json), [срезы по голосам, шуму, действиям и split](../../data/v1/experiments/zhanna-text-only-v1.0.1/slices.csv).
+[Точные суммы и метрики](../../data/v1/experiments/synthetic-commands-v1/metrics.json), [срезы по голосам, шуму, действиям и split](../../data/v1/experiments/synthetic-commands-v1/slices.csv).
 
 WER/CER считаются по суммарным ошибкам, не усреднением строк. Обычная нормализация: NFC → lowercase → ё/е → пунктуация в пробелы → схлопывание пробелов; CER включает пробелы. Обычные знаменатели: 18522 слова / 127827 символов. Числовая диагностика независимо канонизирует каждый текст, имеет отдельные знаменатели 18540 / 128169 и ограниченное покрытие. Неоднозначные выражения не исправляются по эталону.
 
@@ -39,7 +39,7 @@ WER/CER считаются по суммарным ошибкам, не усре
 - sample_000102, xenia/SNR10 (`audio_0097_xenia_snr10`): Whisper выдаёт длинный повторяющийся цифровой хвост. Пользователь слышит повторы и в аудио; точное количество не установлено, вклад TTS/ASR не разделён.
 - sample_000119, baya/SNR20 (`audio_0112_baya_snr20`): пользователь не слышит повторов в аудио, но Whisper выдаёт повторяющийся цифровой хвост.
 
-[Наблюдения двух записей с audio_id/SHA256](../../data/v1/experiments/zhanna-text-only-v1.0.1/manual-review-observations.json), [подтверждение пяти пилотных WAV](../../data/v1/asr-tts/manual-review-confirmed.json). Подтверждения не распространяются на весь набор.
+[Наблюдения двух записей с audio_id/SHA256](../../data/v1/experiments/synthetic-commands-v1/manual-review-observations.json), [подтверждение пяти пилотных WAV](../../data/v1/asr-tts/manual-review-confirmed.json). Подтверждения не распространяются на весь набор.
 
 Это предварительная оценка синтетического тракта: TTS может не соответствовать эталону, а числа цифрами и словами дают различия формата. 1359 WAV — коррелированные версии 151 команды, не 1359 независимых команд. Скорость — предварительный замер одного CPU, медленные случаи сохранены. Сравнение с прежними наборами не доказывает улучшения. Обучение/дообучение моделей не выполнялось.
 
