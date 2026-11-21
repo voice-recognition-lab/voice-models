@@ -57,7 +57,7 @@ def main():
     parser.add_argument("--samples", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
     parser.add_argument("--cache-dir", type=Path, default=Path(".cache/silero"))
-    parser.add_argument("--config", type=Path, default=Path(__file__).resolve().parents[2] / "configs/asr-tts-pilot.json")
+    parser.add_argument("--config", type=Path, default=Path(__file__).resolve().parent / "configs/asr-tts-pilot.json")
     args = parser.parse_args()
     samples = load_samples(args.samples)
     config = load_config(args.config)

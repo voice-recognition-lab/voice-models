@@ -16,7 +16,7 @@ from check_dataset import audit
 class NoiseTests(unittest.TestCase):
     def test_clean_and_multivoice_configs(self):
         from input_validation import load_config
-        configs = Path(__file__).resolve().parents[3] / "configs"
+        configs = Path(__file__).resolve().parents[1] / "configs"
         clean = load_config(configs / "asr-tts-pilot.json")
         self.assertEqual(clean["VOICES"], ["xenia"])
         self.assertEqual(clean["NOISE_SNRS_DB"], [])

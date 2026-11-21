@@ -15,7 +15,7 @@ REPO = Path(__file__).resolve().parents[3]
 
 class PipelineTests(unittest.TestCase):
     def fixture(self, root):
-        config = json.loads((REPO / "configs/asr-tts-pilot.json").read_text(encoding="utf-8"))
+        config = json.loads((REPO / "dataset-generator/asr-tts/configs/asr-tts-pilot.json").read_text(encoding="utf-8"))
         (root / "samples.jsonl").write_bytes((REPO / "data/v1/asr-tts/pilot/samples.jsonl").read_bytes())
         config.update(samples="samples.jsonl", output="results",
                       interpreters={"main": "python-main", "gigaam": "python-gigaam"})

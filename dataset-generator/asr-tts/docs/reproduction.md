@@ -1,6 +1,6 @@
 # Воспроизведение ASR-эксперимента ru-text-only-1.0.1
 
-Команды ниже приведены для будущего запуска из корня репозитория после установки двух окружений по [README модуля](../dataset-generator/asr-tts/README.md). При подготовке публикации модели не запускались. Параметры моделей и нормализация не меняются. Полный аудиопрогон требует загрузки моделей и времени; для проверки опубликованных метрик достаточно отдельного блока README без моделей.
+Команды ниже приведены для будущего запуска из корня репозитория после установки двух окружений по [README модуля](../README.md). При подготовке публикации модели не запускались. Параметры моделей и нормализация не меняются. Полный аудиопрогон требует загрузки моделей и времени; для проверки опубликованных метрик достаточно отдельного блока README без моделей.
 
 ## Входы и проверка до моделей
 
@@ -10,7 +10,7 @@
 
 ```powershell
 New-Item -ItemType Directory -Path outputs -Force | Out-Null
-.\.venv\Scripts\python.exe -B -c "import sys,json; from pathlib import Path; sys.path.insert(0,'dataset-generator/asr-tts'); from run_pipeline import preflight; c=json.loads(Path('configs/asr-tts.json').read_text(encoding='utf-8')); c['output']='outputs/reproduce-synthetic-commands-v1'; p=Path('outputs/reproduce-synthetic-commands-config.json'); p.open('x',encoding='utf-8').write(json.dumps(c,indent=2)); _,r,s,e=preflight(p); print('samples=',len(s),'expected_wavs=',len(s)*9)"
+.\.venv\Scripts\python.exe -B -c "import sys,json; from pathlib import Path; sys.path.insert(0,'dataset-generator/asr-tts'); from run_pipeline import preflight; c=json.loads(Path('dataset-generator/asr-tts/configs/asr-tts.json').read_text(encoding='utf-8')); c['output']='outputs/reproduce-synthetic-commands-v1'; p=Path('outputs/reproduce-synthetic-commands-config.json'); p.open('x',encoding='utf-8').write(json.dumps(c,indent=2)); _,r,s,e=preflight(p); print('samples=',len(s),'expected_wavs=',len(s)*9)"
 if ($LASTEXITCODE -ne 0) { throw 'Preflight failed; do not start models' }
 ```
 
@@ -28,9 +28,9 @@ if ($LASTEXITCODE -ne 0) { throw 'Derivation failed' }
 ## TTS, аудиоаудит и обязательный шлюз длительностей
 
 ```powershell
-$Run = 'outputs/reproduce-zhanna-text-only-v1.0.1'
+$Run = 'outputs/reproduce-synthetic-commands-v1'
 $Samples = 'data/v1/asr-tts/tts_ready_samples.jsonl'
-$Models = 'data/v1/experiments/synthetic-commands-v1/config.models.json'
+$Models = 'dataset-generator/asr-tts/experiments/synthetic-commands-v1/config.models.json'
 if (Test-Path -LiteralPath $Run) { throw 'Choose a new run directory' }
 New-Item -ItemType Directory -Path $Run | Out-Null
 Copy-Item -LiteralPath $Samples -Destination "$Run/input_samples.jsonl"
@@ -88,6 +88,6 @@ foreach ($a in $Audio) {
 }
 ```
 
-Все гипотезы, времена, настройки и метрики остаются в новом `$Run`. Сводные обычные срезы — `comparison/`; отдельные числовые записи и тексты до/после преобразования — `numeric-*/`. Срезы числовой оценки завершённого эксперимента опубликованы в `data/v1/experiments/synthetic-commands-v1/slices.csv`.
+Все гипотезы, времена, настройки и метрики остаются в новом `$Run`. Сводные обычные срезы — `comparison/`; отдельные числовые записи и тексты до/после преобразования — `numeric-*/`. Срезы числовой оценки завершённого эксперимента опубликованы в `dataset-generator/asr-tts/experiments/synthetic-commands-v1/slices.csv`.
 
 При HTTP 429 остановитесь и сохраните частичный результат; не меняйте ревизию на main. В опубликованном запуске GigaAM продолжили из локального snapshot с проверкой LFS SHA256 и Git blob ID, без повторения Whisper. Исторический локальный cache-only helper не является универсальным публичным загрузчиком; его доказательства сохранены в provenance.json. Повторный запуск после внешнего сбоя должен использовать новый каталог; не удаляйте предыдущие файлы.

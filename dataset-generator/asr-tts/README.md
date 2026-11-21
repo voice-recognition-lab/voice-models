@@ -8,10 +8,10 @@
 |---|---|
 | `dataset-generator/asr-tts/` | Рабочие скрипты и зависимости |
 | `dataset-generator/asr-tts/tests/` | Тесты без загрузки моделей |
-| `configs/asr-tts-pilot.json` | Минимальный запуск на четырёх командах |
-| `configs/asr-tts.json` | Конфигурация опубликованного эксперимента |
+| `dataset-generator/asr-tts/configs/asr-tts-pilot.json` | Минимальный запуск на четырёх командах |
+| `dataset-generator/asr-tts/configs/asr-tts.json` | Конфигурация опубликованного эксперимента |
 | `data/v1/asr-tts/` | Исторический источник, произносимые тексты, соответствия и вопросы произношения |
-| `data/v1/experiments/synthetic-commands-v1/` | Сохранённые гипотезы, замеры, метаданные и метрики; без WAV |
+| `dataset-generator/asr-tts/experiments/synthetic-commands-v1/` | Сохранённые гипотезы, замеры, метаданные и метрики; без WAV |
 | `outputs/` | Новые локальные результаты, исключены из Git |
 
 `source_samples.jsonl` — точный снимок 163 команд исходного коммита текстового генератора. Он не заменяет актуальный `data/v1/dataset/samples.jsonl` текстового генератора. `tts_ready_samples.jsonl` содержит 151 произносимый эталон, 12 вопросов сохранены в `pronunciation_review.jsonl`. Все ID выбранных команд доступны непосредственно в файле входов. Не подменяйте исторический источник новым датасетом при проверке старых метрик.
@@ -33,15 +33,15 @@ py -3.11 -m venv .venv-gigaam
 
 ```powershell
 .\.venv\Scripts\python.exe -B -m unittest discover -s dataset-generator/asr-tts/tests -v
-.\.venv\Scripts\python.exe dataset-generator/asr-tts/run_pipeline.py --config configs/asr-tts-pilot.json
+.\.venv\Scripts\python.exe dataset-generator/asr-tts/run_pipeline.py --config dataset-generator/asr-tts/configs/asr-tts-pilot.json
 ```
 
-Конвейер проверяет входы и окружения, затем последовательно выполняет синтез, аудит, обе ASR, обе обычные оценки и сравнение. При ошибке останавливается и сохраняет статус/логи. Выходной каталог должен быть новым. Конфигурация содержит относительные пути от корня репозитория. Полный исторический эксперимент с дополнительной числовой оценкой и общим шлюзом длительности воспроизводится [по этапам](../../docs/asr-reproduction.md), а не одной командой пилота.
+Конвейер проверяет входы и окружения, затем последовательно выполняет синтез, аудит, обе ASR, обе обычные оценки и сравнение. При ошибке останавливается и сохраняет статус/логи. Выходной каталог должен быть новым. Конфигурация содержит относительные пути от корня репозитория. Полный исторический эксперимент с дополнительной числовой оценкой и общим шлюзом длительности воспроизводится [по этапам](docs/reproduction.md), а не одной командой пилота.
 
 ## Оценка сохранённых гипотез без моделей
 
 ```powershell
-$Artifacts = 'data/v1/experiments/synthetic-commands-v1'
+$Artifacts = 'dataset-generator/asr-tts/experiments/synthetic-commands-v1'
 $Check = 'outputs/published-evaluation-check'
 if (Test-Path -LiteralPath $Check) { throw 'Choose a new output directory' }
 foreach ($Model in @('whisper', 'gigaam')) {

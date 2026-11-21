@@ -32,7 +32,7 @@ augmentation, transcription with Whisper and GigaAM, and independent evaluation.
 
 - [Module README](dataset-generator/asr-tts/README.md)
 - [Data contracts](docs/contracts.md)
-- [Synthetic commands experiment report](docs/reports/asr-synthetic-commands-v1.md)
+- [Synthetic commands experiment report](dataset-generator/asr-tts/reports/asr-synthetic-commands-v1.md)
 
 The completed experiment covers 151 commands and 1,359 synthetic WAV files.
 WER is 44.09% for Whisper-small and 35.90% for GigaAM-v3. These results are a
@@ -44,5 +44,5 @@ names remain challenging, and manual review of a few recordings does not
 validate the entire dataset.
 
 ASR/TTS code and tests are in `dataset-generator/asr-tts/`, configurations
-in `configs/`, and experiment data in `data/v1/`. Model weights, audio,
+in `dataset-generator/asr-tts/configs/`, and experiment data in `data/v1/`. Model weights, audio,
 virtual environments, and runtime caches are excluded from Git.
