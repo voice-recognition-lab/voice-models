@@ -1,0 +1,115 @@
+{
+  "cpu_full": {
+    "encoder": {
+      "dataset": "data/v1.1",
+      "checkpoint": "cointegrated/rubert-tiny2",
+      "revision": "e8ed3b0c8bbf4fb6984c3de043bf7d2f4e5969ae",
+      "model_cache": ".venv/huggingface",
+      "embedding_cache": ".venv/text_to_actions/embeddings",
+      "max_length": 512,
+      "batch_size": 32,
+      "device": "cpu",
+      "num_threads": 4,
+      "seed": 42,
+      "top_k": [
+        1,
+        3,
+        5,
+        10,
+        20,
+        30
+      ]
+    },
+    "training": {
+      "output_dir": "text_to_actions/runs/train_bi_encoder",
+      "epochs": 3,
+      "batch_size": 8,
+      "learning_rate": 2e-05,
+      "weight_decay": 0.01,
+      "temperature": 0.05,
+      "warmup_ratio": 0.1,
+      "max_grad_norm": 1.0,
+      "hard_negatives": 5,
+      "random_negatives": 5,
+      "refresh_hard_negatives": true,
+      "selection_k": 10,
+      "log_every": 20
+    }
+  },
+  "cpu_trial": {
+    "encoder": {
+      "dataset": "data/v1.1",
+      "checkpoint": "cointegrated/rubert-tiny2",
+      "revision": "e8ed3b0c8bbf4fb6984c3de043bf7d2f4e5969ae",
+      "model_cache": ".venv/huggingface",
+      "embedding_cache": ".venv/text_to_actions/embeddings",
+      "max_length": 512,
+      "batch_size": 32,
+      "device": "cpu",
+      "num_threads": 4,
+      "seed": 42,
+      "top_k": [
+        1,
+        3,
+        5,
+        10,
+        20,
+        30
+      ]
+    },
+    "training": {
+      "output_dir": "text_to_actions/runs/train_bi_encoder_probe",
+      "train_limit": 256,
+      "validation_limit": 128,
+      "epochs": 1,
+      "batch_size": 8,
+      "learning_rate": 2e-05,
+      "weight_decay": 0.01,
+      "temperature": 0.05,
+      "warmup_ratio": 0.1,
+      "max_grad_norm": 1.0,
+      "hard_negatives": 5,
+      "random_negatives": 5,
+      "refresh_hard_negatives": true,
+      "selection_k": 10,
+      "log_every": 8
+    }
+  },
+  "gpu_full": {
+    "encoder": {
+      "dataset": "data/v1.1",
+      "checkpoint": "cointegrated/rubert-tiny2",
+      "revision": "e8ed3b0c8bbf4fb6984c3de043bf7d2f4e5969ae",
+      "model_cache": ".venv/huggingface",
+      "embedding_cache": ".venv/text_to_actions/embeddings",
+      "max_length": 512,
+      "batch_size": 32,
+      "device": "cuda:0",
+      "num_threads": 4,
+      "seed": 42,
+      "top_k": [
+        1,
+        3,
+        5,
+        10,
+        20,
+        30
+      ]
+    },
+    "training": {
+      "output_dir": "text_to_actions/runs/train_bi_encoder_cuda",
+      "epochs": 3,
+      "batch_size": 8,
+      "learning_rate": 2e-05,
+      "weight_decay": 0.01,
+      "temperature": 0.05,
+      "warmup_ratio": 0.1,
+      "max_grad_norm": 1.0,
+      "hard_negatives": 5,
+      "random_negatives": 5,
+      "refresh_hard_negatives": true,
+      "selection_k": 10,
+      "log_every": 20
+    }
+  }
+}

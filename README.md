@@ -15,12 +15,20 @@ are retained for reproducibility and error analysis.
 Dataset version `data/v1.1/` uses Russian examples from MASSIVE and an action
 catalog from MASSIVE-Agents.
 
+## Synthetic text generator
+
+Generates synthetic Russian voice commands with action labels and arguments.
+Status: currently on hold; not used in ongoing model development.
+[Generator README](dataset-generator/text/README.md)
+
 ## Text dataset adapter
 
 Imports Russian examples from MASSIVE and action definitions from MASSIVE-Agents.
 [Adapter README](dataset-generator/massive/README.md)
+Status: done.
+## Text to actions
 
-## Synthetic text generator
+Action retrieval and reranking with a bi-encoder and cross-encoder.
+Baselines and CPU training trials are complete; full GPU training and argument extraction are pending.
 
-Generates synthetic Russian voice commands with action labels and arguments.
-[Generator README](dataset-generator/text/README.md)
+[Architecture, project status, and usage](text_to_actions/README.md)

@@ -1,0 +1,61 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Action",
+  "type": "object",
+  "required": [
+    "action_id",
+    "description",
+    "parameters"
+  ],
+  "properties": {
+    "action_id": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "description": {
+      "type": "string",
+      "pattern": "\\S"
+    },
+    "parameters": {
+      "type": "object",
+      "required": [
+        "type",
+        "properties",
+        "required",
+        "additionalProperties"
+      ],
+      "properties": {
+        "type": {
+          "const": "object"
+        },
+        "properties": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "object",
+            "required": [
+              "type",
+              "description"
+            ],
+            "properties": {
+              "description": {
+                "type": "string",
+                "pattern": "\\S"
+              }
+            }
+          }
+        },
+        "required": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "\\S"
+          },
+          "uniqueItems": true
+        },
+        "additionalProperties": {
+          "const": false
+        }
+      }
+    }
+  }
+}
