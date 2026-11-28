@@ -1,0 +1,21 @@
+Loaded v3_e2e_ctc on cpu; full warmup (not timed).
+audio_0001_xenia_clean: 'Разбуди меня в 5:00 утра на этой неделе.', 0.498s, RTF=0.226
+audio_0002_xenia_clean: 'Разбуди меня в 9:00 утра в пятницу.', 0.406s, RTF=0.197
+audio_0003_xenia_clean: 'Поставь будильник на 2 ч вперёд.', 0.418s, RTF=0.198
+audio_0004_xenia_clean: 'Тише.', 0.191s, RTF=0.346
+audio_0005_xenia_clean: 'Олетиха.', 0.196s, RTF=0.227
+audio_0006_xenia_clean: 'Остановись.', 0.196s, RTF=0.234
+audio_0007_xenia_clean: 'Оля, остановись на 10 секунд.', 0.350s, RTF=0.192
+audio_0008_xenia_clean: 'Остановись на 10 секунд.', 0.313s, RTF=0.192
+audio_0009_xenia_clean: 'Розовый — это то, что нам надо.', 0.289s, RTF=0.180
+audio_0010_xenia_clean: 'Сделай освещение здесь чуть более тёплым.', 0.433s, RTF=0.171
+audio_0011_xenia_clean: 'Пожалуйста, сделай свет подходящий для чтения.', 0.424s, RTF=0.169
+audio_0012_xenia_clean: 'Выключи свет, пожалуйста.', 0.339s, RTF=0.232
+audio_0013_xenia_clean: 'Время идти спать.', 0.277s, RTF=0.222
+audio_0014_xenia_clean: 'Оле, время спать.', 0.256s, RTF=0.228
+audio_0015_xenia_clean: 'И опустилась темнота.', 0.283s, RTF=0.222
+audio_0016_xenia_clean: 'Выключи свет в ванной.', 0.289s, RTF=0.208
+audio_0017_xenia_clean: 'Приглуши светильники в холле.', 0.323s, RTF=0.186
+audio_0018_xenia_clean: 'Приглуши свет в гостиной.', 0.292s, RTF=0.187
+audio_0019_xenia_clean: 'Выключи свет в спальне.', 0.288s, RTF=0.200
+audio_0020_xenia_clean: 'Выключи свет в спальне.', 0.266s, RTF=0.185

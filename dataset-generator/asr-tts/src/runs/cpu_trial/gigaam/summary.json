@@ -1,0 +1,28 @@
+{
+  "records": 20,
+  "empty_references": 0,
+  "reference_words": 86,
+  "reference_characters": 507,
+  "word_substitutions": 10,
+  "word_deletions": 3,
+  "word_insertions": 2,
+  "word_errors": 15,
+  "character_substitutions": 17,
+  "character_deletions": 30,
+  "character_insertions": 0,
+  "character_errors": 47,
+  "elapsed_sec": 6.325702999999066,
+  "duration_sec": 31.412499999999998,
+  "wer": 0.1744186046511628,
+  "cer": 0.09270216962524655,
+  "rtf": 0.20137534421007774,
+  "normalization": "Unicode NFC → lowercase → ё to е → Unicode punctuation (category P*) replaced by spaces → whitespace collapsed. Words, numbers, negations and self-corrections are retained. CER includes spaces in normalized strings. Empty normalized references are kept: hypothesis tokens count as insertions; a rate with zero reference denominator is null (undefined), even for two empty strings. Their errors still contribute to corpus totals. Corpus rates are summed errors / summed reference units, never mean per-record rates.",
+  "jiwer_version": "4.0.0",
+  "input_sha256": {
+    "samples": "7a814b071a91185e68bda3422b810c444f210aa445fd96b37b2e574e30e86bf2",
+    "manifest": "5a22a1633c09bb6b6b2f12acb132aa686323eae067345303416bcc02ac0de8b6",
+    "predictions": "9f880402c7ea8d33ed0c2d5fad8eb48449c0c130f7aa9b43dd3063f90cdceac1",
+    "timings": "dd1a9b0d8784bbbe6c7853a50d6444331586f686b079da235ea95be2e1fa67eb"
+  },
+  "script_sha256": "f1ea438a4a5c7dc74d99131733f7223561c1a6a827857c9df5e8acda2c1ee939"
+}

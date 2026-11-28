@@ -1,0 +1,23 @@
+C:\02_Projects\Programming\voice-models\.venv\Lib\site-packages\torch\package\package_importer.py:262: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  dtype = storage_type.dtype
+audio_0001_xenia_clean: clean + 0 noise variants
+audio_0002_xenia_clean: clean + 0 noise variants
+audio_0003_xenia_clean: clean + 0 noise variants
+audio_0004_xenia_clean: clean + 0 noise variants
+audio_0005_xenia_clean: clean + 0 noise variants
+audio_0006_xenia_clean: clean + 0 noise variants
+audio_0007_xenia_clean: clean + 0 noise variants
+audio_0008_xenia_clean: clean + 0 noise variants
+audio_0009_xenia_clean: clean + 0 noise variants
+audio_0010_xenia_clean: clean + 0 noise variants
+audio_0011_xenia_clean: clean + 0 noise variants
+audio_0012_xenia_clean: clean + 0 noise variants
+audio_0013_xenia_clean: clean + 0 noise variants
+audio_0014_xenia_clean: clean + 0 noise variants
+audio_0015_xenia_clean: clean + 0 noise variants
+audio_0016_xenia_clean: clean + 0 noise variants
+audio_0017_xenia_clean: clean + 0 noise variants
+audio_0018_xenia_clean: clean + 0 noise variants
+audio_0019_xenia_clean: clean + 0 noise variants
+audio_0020_xenia_clean: clean + 0 noise variants
+Completed: 20 WAV files in C:\02_Projects\Programming\voice-models\dataset-generator\asr-tts\src\runs\cpu_trial_shared_offline-20261128-145221\dataset
