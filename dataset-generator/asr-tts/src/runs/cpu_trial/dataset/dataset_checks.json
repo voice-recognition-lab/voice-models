@@ -1,0 +1,16 @@
+{
+  "passed": true,
+  "files": 20,
+  "clean": 20,
+  "noisy": 0,
+  "conditions": {
+    "clean": 20
+  },
+  "max_peak": 0.97808837890625,
+  "clipped_files": 0,
+  "max_snr_error_db": 0,
+  "snr_tolerance_db": 0.05,
+  "measured_snr": [],
+  "noise_source": "Artificial white Gaussian RNG noise, NOT a real acoustic environment recording",
+  "noise_pcm_reconstruction": "bit-exact for every noisy file"
+}

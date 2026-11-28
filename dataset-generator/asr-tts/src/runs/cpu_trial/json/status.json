@@ -1,0 +1,146 @@
+{
+    "started_at":  "2026-11-28T11:52:23.179895+00:00",
+    "preflight":  "passed",
+    "unique_samples":  20,
+    "unique_group_ids":  20,
+    "expected_wav":  20,
+    "status":  "completed",
+    "stages":  [
+                   {
+                       "name":  "tts_checks_and_noise",
+                       "status":  "completed",
+                       "command":  [
+                                       "C:\\02_Projects\\Programming\\voice-models\\.venv\\Scripts\\python.exe",
+                                       "-u",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\synthesize.py",
+                                       "--samples",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\input_samples.jsonl",
+                                       "--config",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\config.models.json",
+                                       "--output",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\dataset"
+                                   ],
+                       "log":  "logs/tts_checks_and_noise.log",
+                       "started_at":  "2026-11-28T11:52:23.183845+00:00",
+                       "exit_code":  0,
+                       "finished_at":  "2026-11-28T11:52:34.950201+00:00"
+                   },
+                   {
+                       "name":  "audio_audit",
+                       "status":  "completed",
+                       "command":  [
+                                       "C:\\02_Projects\\Programming\\voice-models\\.venv\\Scripts\\python.exe",
+                                       "-u",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\check_dataset.py",
+                                       "--dataset",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\dataset",
+                                       "--output",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\dataset\\dataset_checks.json"
+                                   ],
+                       "log":  "logs/audio_audit.log",
+                       "started_at":  "2026-11-28T11:52:34.955334+00:00",
+                       "exit_code":  0,
+                       "finished_at":  "2026-11-28T11:52:35.379522+00:00"
+                   },
+                   {
+                       "name":  "whisper",
+                       "status":  "completed",
+                       "command":  [
+                                       "C:\\02_Projects\\Programming\\voice-models\\.venv\\Scripts\\python.exe",
+                                       "-u",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial\\offline_asr.py",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\transcribe.py",
+                                       "--dataset",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\dataset",
+                                       "--config",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\config.models.json",
+                                       "--output",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\whisper"
+                                   ],
+                       "log":  "logs/whisper.log",
+                       "started_at":  "2026-11-28T11:52:35.382825+00:00",
+                       "exit_code":  0,
+                       "finished_at":  "2026-11-28T11:53:39.281847+00:00"
+                   },
+                   {
+                       "name":  "gigaam",
+                       "status":  "completed",
+                       "command":  [
+                                       "C:\\02_Projects\\Programming\\voice-models\\.venv-gigaam\\Scripts\\python.exe",
+                                       "-u",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial\\offline_asr.py",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\transcribe_gigaam.py",
+                                       "--dataset",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\dataset",
+                                       "--config",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\config.models.json",
+                                       "--output",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\gigaam"
+                                   ],
+                       "log":  "logs/gigaam.log",
+                       "started_at":  "2026-11-28T11:53:39.281847+00:00",
+                       "exit_code":  0,
+                       "finished_at":  "2026-11-28T11:53:58.009314+00:00"
+                   },
+                   {
+                       "name":  "evaluate_whisper",
+                       "status":  "completed",
+                       "command":  [
+                                       "C:\\02_Projects\\Programming\\voice-models\\.venv\\Scripts\\python.exe",
+                                       "-u",
+                                       "C:\\02_Projects\\Programming\\voice-models\\evaluation\\evaluate.py",
+                                       "--dataset",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\dataset",
+                                       "--results",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\whisper",
+                                       "--output",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\evaluation-whisper"
+                                   ],
+                       "log":  "logs/evaluate_whisper.log",
+                       "started_at":  "2026-11-28T11:53:58.013280+00:00",
+                       "exit_code":  0,
+                       "finished_at":  "2026-11-28T11:53:58.348274+00:00"
+                   },
+                   {
+                       "name":  "evaluate_gigaam",
+                       "status":  "completed",
+                       "command":  [
+                                       "C:\\02_Projects\\Programming\\voice-models\\.venv\\Scripts\\python.exe",
+                                       "-u",
+                                       "C:\\02_Projects\\Programming\\voice-models\\evaluation\\evaluate.py",
+                                       "--dataset",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\dataset",
+                                       "--results",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\gigaam",
+                                       "--output",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\evaluation-gigaam"
+                                   ],
+                       "log":  "logs/evaluate_gigaam.log",
+                       "started_at":  "2026-11-28T11:53:58.350237+00:00",
+                       "exit_code":  0,
+                       "finished_at":  "2026-11-28T11:53:58.647229+00:00"
+                   },
+                   {
+                       "name":  "comparison",
+                       "status":  "completed",
+                       "command":  [
+                                       "C:\\02_Projects\\Programming\\voice-models\\.venv\\Scripts\\python.exe",
+                                       "-u",
+                                       "C:\\02_Projects\\Programming\\voice-models\\evaluation\\compare_conditions.py",
+                                       "--dataset",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\dataset",
+                                       "--whisper",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\evaluation-whisper",
+                                       "--gigaam",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\evaluation-gigaam",
+                                       "--output",
+                                       "C:\\02_Projects\\Programming\\voice-models\\dataset-generator\\asr-tts\\src\\runs\\cpu_trial_shared_offline-20261128-145221\\comparison"
+                                   ],
+                       "log":  "logs/comparison.log",
+                       "started_at":  "2026-11-28T11:53:58.649190+00:00",
+                       "exit_code":  0,
+                       "finished_at":  "2026-11-28T11:53:58.954253+00:00"
+                   }
+               ],
+    "finished_at":  "2026-11-28T11:53:58.957280+00:00"
+}

@@ -1,0 +1,19 @@
+{
+  "records": 20,
+  "empty_references": 0,
+  "reference_words": 86,
+  "reference_characters": 507,
+  "word_substitutions": 10,
+  "word_deletions": 3,
+  "word_insertions": 2,
+  "word_errors": 15,
+  "character_substitutions": 17,
+  "character_deletions": 30,
+  "character_insertions": 0,
+  "character_errors": 47,
+  "elapsed_sec": 6.325702999999066,
+  "duration_sec": 31.412499999999998,
+  "wer": 0.1744186046511628,
+  "cer": 0.09270216962524655,
+  "rtf": 0.20137534421007774
+}
